@@ -37,6 +37,10 @@ public class EmployeeService {
     }
 
     public void deleteEmployee(Long id) {
-        employeeRepo.deleteEmployeeById(id);
+        try {
+            employeeRepo.deleteEmployeeById(id);
+        } catch (Exception e) {
+            System.err.println("Delete failed.\n" + e.toString());
+        }
     }
 }
